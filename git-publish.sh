@@ -1,4 +1,4 @@
-#!/bin/mksh
+#!/home/ship/bin/mksh
 
 # HC SVNT DRACONES
 # Apparently you are not encouraged to use shell as CGI scripts.
