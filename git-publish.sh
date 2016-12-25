@@ -66,7 +66,7 @@ fi
 
 function check_signature {
   get_sig
-  if [ "${SIGNATURE}" == "${SIG_HASH}" ]; then
+  if [ "${SIGNATURE}" == "${POST_SIG}" ]; then
     printf "%s\n" 'POST body: Good signature'
   else
     printf "%s\n" 'POST body: Wrong signature'

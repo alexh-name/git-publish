@@ -13,11 +13,11 @@ function read_post {
   # Set by header
   HUB_SIGNATURE="${HTTP_X_HUB_SIGNATURE}"
 
-  SIG_ALG="$(
+  POST_SIG_ALG="$(
     cut -d '=' -f 1 <<<"${HUB_SIGNATURE}"
   )"
 
-  SIG_HASH="$(
+  POST_SIG="$(
     cut -d '=' -f 2 <<<"${HUB_SIGNATURE}"
   )"
   
