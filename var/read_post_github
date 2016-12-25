@@ -22,6 +22,4 @@ function read_post {
   )"
   
   . "${VAR_DIR}"/hash_hmac
-
-  id_values
 }
