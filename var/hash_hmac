@@ -2,7 +2,7 @@ function get_sig {
   digest="${POST_SIG_ALG}"
   SIGNATURE="$(
     printf "%s" "${POST}" \
-    | openssl dgst "-${digest}" -hmac "${SECRET_TOKEN}" \
-    | cut -d ' ' -f 2
+    | /usr/bin/openssl dgst "-${digest}" -hmac "${SECRET_TOKEN}" \
+    | /bin/cut -d ' ' -f 2
   )"
 }

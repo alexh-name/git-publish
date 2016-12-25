@@ -8,12 +8,11 @@ printf "%s\n\n" 'Content-type: text/plain'
 # Optional with use of 'check_interval'
 WANTED_INTERVAL='10'
 
-USER="$(whoami)"
+USER="$( /usr/bin/whoami )"
 HOMES_DIR='/home'
 WWW_DIR="/var/www/virtual/${USER}"
 
 HOME="${HOMES_DIR}/${USER}"
-PATH="${PATH}:${HOME}/bin/"
 VAR_DIR="${HOME}/var/git-publish"
 SRC_DIR="${HOME}/git"
 
@@ -92,9 +91,9 @@ function check_interval {
 function update {
   cd "${SRC_DIR}"/"${REPO}"
   printf "%s" "Git checkout: "
-  git checkout "${BRANCH}"
+  /usr/bin/git checkout "${BRANCH}"
   printf "%s" "Git pull: "
-  git pull
+  /usr/bin/git pull
   . "${VAR_DIR}"/"${BUILD_FUNCTION}"
   build
   rsync -qaP --del --exclude-from='.gitignore' dest/ "${WWW_DIR}"/"${URL}"/
