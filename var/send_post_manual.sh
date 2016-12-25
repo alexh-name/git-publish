@@ -27,6 +27,6 @@ SIGNATURE="$(
 
 HTTP_X_MAN_SIGNATURE="${HASH_ALG}=${SIGNATURE}"
 
-wget -O - --post-data "${POST}" --user-agent='send_post_manual' \
+wget --quiet -O - --post-data "${POST}" --user-agent='send_post_manual' \
   --header="X-Man-Signature: ${HTTP_X_MAN_SIGNATURE}" \
   "${URL}"
