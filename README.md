@@ -30,7 +30,7 @@ Error codes:
 * 79: Signature of POST didn't match.
 
 External binaries are called by absolute path to prevent attacks by tampering
-with PATH. Those are:
+with PATH [1]. Those are:
 
 * /usr/bin/whoami
 * /usr/bin/git
@@ -40,3 +40,5 @@ with PATH. Those are:
 * (/usr/bin/python for read_post_github or POSTs including JSON in general)
 
 Check whether those are correct for your setup.
+
+[[1] w3.org](https://www.w3.org/Security/faq/wwwsf4.html)
