@@ -160,6 +160,7 @@ function update_stuff {
 
 identify_service
 read_post
+id_values
 check_signature
 CASE='ready'
 check_interval
