@@ -28,3 +28,15 @@ Error codes:
 * 73: Service identified by User-Agent not known
      (hence no function to handle POST).
 * 79: Signature of POST didn't match.
+
+External binaries are called by absolute path to prevent attacks by tampering
+with PATH. Those are:
+
+* /usr/bin/whoami
+* /usr/bin/git
+* /bin/awk
+* /bin/cut
+* /usr/bin/openssl
+* (/usr/bin/python for read_post_github or POSTs including JSON in general)
+
+Check whether those are correct for your setup.

@@ -2,11 +2,11 @@ function read_post {
   export PYTHONIOENCODING='utf8'
 
   POST_VALUES="$(
-    python -c "import sys, json;values = json.load(sys.stdin);print values['repository']['full_name'];print values['ref']"<<<"${POST}"
+    /usr/bin/python -c "import sys, json;values = json.load(sys.stdin);print values['repository']['full_name'];print values['ref']"<<<"${POST}"
   )"
 
-  FULL_NAME="$( awk 'NR == 1;{print $0}' <<<"${POST_VALUES}" )"
-  BRANCH="$( awk 'NR == 2;{sub(/.+\/.+\//,"");print $0}' <<<"${POST_VALUES}" )"
+  FULL_NAME="$( /bin/awk 'NR == 1;{print $0}' <<<"${POST_VALUES}" )"
+  BRANCH="$( /bin/awk 'NR == 2;{sub(/.+\/.+\//,"");print $0}' <<<"${POST_VALUES}" )"
 
   ID="${FULL_NAME} ${BRANCH}"
 
@@ -14,11 +14,11 @@ function read_post {
   HUB_SIGNATURE="${HTTP_X_HUB_SIGNATURE}"
 
   POST_SIG_ALG="$(
-    cut -d '=' -f 1 <<<"${HUB_SIGNATURE}"
+    /bin/cut -d '=' -f 1 <<<"${HUB_SIGNATURE}"
   )"
 
   POST_SIG="$(
-    cut -d '=' -f 2 <<<"${HUB_SIGNATURE}"
+    /bin/cut -d '=' -f 2 <<<"${HUB_SIGNATURE}"
   )"
   
   . "${VAR_DIR}"/hash_hmac
