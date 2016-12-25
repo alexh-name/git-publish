@@ -1,5 +1,5 @@
 function get_sig {
-  digest="${SIG_ALG}"
+  digest="${POST_SIG_ALG}"
   SIGNATURE="$(
     printf "%s" "${POST}" \
     | openssl dgst "-${digest}" -hmac "${SECRET_TOKEN}" \
