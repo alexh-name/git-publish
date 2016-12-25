@@ -1,0 +1,22 @@
+function read_post {
+
+  POST_VALUES="${POST}"
+
+  FULL_NAME="$( awk 'NR == 1;{print $0}' <<<"${POST_VALUES}" )"
+  BRANCH="$( awk 'NR == 2;{print $0}' <<<"${POST_VALUES}" )"
+
+  ID="${FULL_NAME} ${BRANCH}"
+
+  # Set by header
+  MAN_SIGNATURE="${HTTP_X_MAN_SIGNATURE}"
+
+  POST_SIG_ALG="$(
+    cut -d '=' -f 1 <<<"${MAN_SIGNATURE}"
+  )"
+
+  POST_SIG="$(
+    cut -d '=' -f 2 <<<"${MAN_SIGNATURE}"
+  )"
+  
+  . "${VAR_DIR}"/hash_hmac
+}

@@ -19,6 +19,10 @@ SRC_DIR="${HOME}/git"
 
 function identify_service {
   case "${HTTP_USER_AGENT}" in
+    send_post_manual)
+      printf "%s\n" 'Service identified as send_post_manual. Hi!'
+      . "${VAR_DIR}"/read_post_manual
+      ;;
     GitHub-Hookshot/*)
       printf "%s\n" 'Service identified as GitHub.'
       . "${VAR_DIR}"/read_post_github
