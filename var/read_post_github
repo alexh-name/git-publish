@@ -5,8 +5,8 @@ function read_post {
     /usr/bin/python -c "import sys, json;values = json.load(sys.stdin);print values['repository']['full_name'];print values['ref']"<<<"${POST}"
   )"
 
-  FULL_NAME="$( /bin/awk 'NR == 1;{print $0}' <<<"${POST_VALUES}" )"
-  BRANCH="$( /bin/awk 'NR == 2;{sub(/.+\/.+\//,"");print $0}' <<<"${POST_VALUES}" )"
+  FULL_NAME="$( /bin/awk 'NR == 1' <<<"${POST_VALUES}" )"
+  BRANCH="$( /bin/awk '{sub(/.+\/.+\//,"")}; NR == 2' <<<"${POST_VALUES}" )"
 
   ID="${FULL_NAME} ${BRANCH}"
 
