@@ -50,13 +50,13 @@ function check_signature {
 }
 
 function id_values {
-  ID_VALUES="$( grep -E "^${ID}\ " "${VAR_DIR}"/list.txt )"
+  ID_VALUES="$( /bin/grep -E "^${ID}\ " "${VAR_DIR}"/list.txt )"
 
-  REPO="$( awk '{print $1}'<<<"${ID_VALUES}" )"
-  BRANCH="$( awk '{print $2}'<<<"${ID_VALUES}" )"
-  BUILD_FUNCTION="$( awk '{print $3}'<<<"${ID_VALUES}" )"
-  URL="$( awk '{print $4}'<<<"${ID_VALUES}" )"
-  SECRET_TOKEN="$( awk '{print $5}'<<<"${ID_VALUES}" )"
+  REPO="$( /bin/awk '{print $1}'<<<"${ID_VALUES}" )"
+  BRANCH="$( /bin/awk '{print $2}'<<<"${ID_VALUES}" )"
+  BUILD_FUNCTION="$( /bin/awk '{print $3}'<<<"${ID_VALUES}" )"
+  URL="$( /bin/awk '{print $4}'<<<"${ID_VALUES}" )"
+  SECRET_TOKEN="$( /bin/awk '{print $5}'<<<"${ID_VALUES}" )"
 
   REPO_DIR="${VAR_DIR}/${REPO}"
 
@@ -66,7 +66,7 @@ function id_values {
 }
 
 function check_interval {
-  CALLTIME="$( date +%s )"
+  CALLTIME="$( /bin/date +%s )"
   if [ ! -f "${REPO_DIR}"/last.txt ];then
     printf "%d\n" '0' >"${REPO_DIR}"/last.txt
   fi

@@ -34,7 +34,9 @@ with PATH [1]. Those are:
 
 * /usr/bin/whoami
 * /usr/bin/git
+* /bin/date
 * /bin/awk
+* /bin/grep
 * /bin/cut
 * /usr/bin/openssl
 * (/usr/bin/python for read_post_github or POSTs including JSON in general)
