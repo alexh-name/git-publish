@@ -90,10 +90,10 @@ function check_interval {
 
 function update {
   cd "${SRC_DIR}"/"${REPO}"
-  printf "%s" "Git checkout: "
-  /usr/bin/git checkout "${BRANCH}"
   printf "%s" "Git pull: "
   /usr/bin/git pull
+  printf "%s" "Git checkout: "
+  /usr/bin/git checkout "${BRANCH}"
   . "${VAR_DIR}"/"${BUILD_FUNCTION}"
   build
   rsync -qaP --del --exclude-from='.gitignore' dest/ "${WWW_DIR}"/"${URL}"/
