@@ -1,3 +1,3 @@
 function build {
-  URL="${URL}" WWW_DIR="${WWW_DIR}" ./make.sh
+  URL="${URL}" WWW_DIR="${WWW_DIR}" BRANCH="${BRANCH}" ./make.sh
 }

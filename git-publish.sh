@@ -95,7 +95,7 @@ function update {
   printf "%s" "Git pull: "
   /usr/bin/git pull
   . "${VAR_DIR}"/"${BUILD_FUNCTION}"
-  URL="${URL}" WWW_DIR="${WWW_DIR}" build
+  URL="${URL}" WWW_DIR="${WWW_DIR}" BRANCH="${BRANCH}" build
   printf "%s\n" 'Built'
 }
 
