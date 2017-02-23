@@ -96,7 +96,7 @@ function update {
   /usr/bin/git pull
   . "${VAR_DIR}"/"${BUILD_FUNCTION}"
   URL="${URL}" WWW_DIR="${WWW_DIR}" build
-  printf "%s\n" 'Synced'
+  printf "%s\n" 'Built'
 }
 
 function update_stuff {
