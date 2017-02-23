@@ -95,8 +95,7 @@ function update {
   printf "%s" "Git pull: "
   /usr/bin/git pull
   . "${VAR_DIR}"/"${BUILD_FUNCTION}"
-  build
-  rsync -qaP --del --exclude-from='.gitignore' dest/ "${WWW_DIR}"/"${URL}"/
+  URL="${URL}" WWW_DIR="${WWW_DIR}" build
   printf "%s\n" 'Synced'
 }
 
